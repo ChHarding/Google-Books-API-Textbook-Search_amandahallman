@@ -15,8 +15,7 @@ brings them to where they can purchase, rent, or check out the book. There will 
 
 The general interface [after the user has logged in] will be a web application (browser) using Flask, but I would start with a jupyter notebook. The application will have a search bar located at the top 
 of the page, the user's profile in the upper-right corner of the page, and recommended books categorized by subject shown in the center of the application. Under the search bar would be an icon to upload a
-file, such as a PDF or Word Document, in order for the system to retrieve information for the course. Located near the bottom of the page will be pre-filled links with different subjects 
-(i.e., Math, Biology, Human-Computer Interaction) that take you to the recommended books upon selection. The user should be able to filter/refine the search parameters by setting the date, subject, 
+file, such as a PDF or Word Document, in order for the system to retrieve information for a course. The user should be able to filter/refine the search parameters by setting the date, subject, 
 type (textbook or book), and/or author. By default, the most popular (or purchased, used, etc.) books from 1990 - present would be shown.
 
 The primary stakeholders of this application will be college or university students taking courses, and the secondary stakeholders will be college or university faculty members who want 
@@ -110,5 +109,5 @@ Program flow:
 - Figuring out the core prototype first based on my sketch and then thinking about enhancements (i.e., uploading syllabi) and how to add that as a main feature
 - I feel somewhat confident in implementing the spec as is but I would need help with figuring out what tools to use (Flask, APIs, Bootstrap, Folium, etc.).
 - If it's possible to use Amazon API or Open Search Library API for the intended goal, figuring out how to include the filter data (such as all subjects and authors), and whether
-it's possible to display this on a GUI
+it's possible to display this on a GUI. I also don't know if the application can bring up where to rent or check out the book instead of just purchasing on Amazon.
 - The parts I am least familiar with are the tools to use (Flask, Bootstrap, Folum, etc.) and how they specifically work. I have worked with Flask in HCI 574, but that was my first introduction.
