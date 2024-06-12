@@ -2,20 +2,16 @@
 Project spec for HCI 584 based on recommending textbook or book information relevant to college or university courses and syllabi.
 
 ### General description of the project
-Flask web interface that finds textbooks or books related to a university or college course using either:
+Flask web interface that finds textbooks or books related to a university or college course using:
 
-- Amazon API: https://webservices.amazon.com/paapi5/documentation/
-- Open Library Search API: https://openlibrary.org/dev/docs/api/search.
+- Google Books API: https://developers.google.com/books/docs/v1/using
 
-The interface will have a syllabus integration and recommendation system, such that it will enhance the user experience by automatically 
-extracting textbook information from uploaded syllabi and recommending relevant books based on the course details. The main interaction will be a user searching for a course subject 
-(i.e., Math, Biology, Human-Computer Interaction), in which the system produces a list of relevant textbooks or books based on what was inputted. The secondary interaction will be a user uploading a course 
-syllabus into the system, in which it finds keywords, phrases, or textbook information and recommends relevant or indicated books. The user will be able to select a link associated with a textbook that 
+The interface will have a search bar, filter, and output area. The main interaction will be a user searching for a course subject 
+(i.e., Math, Biology, Human-Computer Interaction), in which the system produces a list of relevant textbooks or books based on what was inputted. The user will be able to select a link associated with a textbook that 
 brings them to where they can purchase, rent, or check out the book. There will be a loop that allows the user to continue searching without having to leave the application.
 
 The general interface [after the user has logged in] will be a web application (browser) using Flask, but I would start with a jupyter notebook. The application will have a search bar located at the top 
-of the page, the user's profile in the upper-right corner of the page, and recommended books categorized by subject shown in the center of the application. Under the search bar would be an icon to upload a
-file, such as a PDF or Word Document, in order for the system to retrieve information for a course. The user should be able to filter/refine the search parameters by setting the date, subject, 
+of the page, the user's profile in the upper-right corner of the page, and recommended books categorized by subject shown in the center of the application.  The user should be able to filter/refine the search parameters by setting the date, subject, 
 type (textbook or book), and/or author. By default, the most popular (or purchased, used, etc.) books from 1990 - present would be shown.
 
 The primary stakeholders of this application will be college or university students taking courses, and the secondary stakeholders will be college or university faculty members who want 
@@ -39,19 +35,6 @@ fashion (ideally showing a picture). The user will use the search bar at the top
 recommended books or textbooks to the user related to biology. The user then changes the filter to show only textbooks and changes the date range from 2014 to present. With "biology" still in the search bar, 
 the user will hit 'enter' again and be shown a new list of related textbooks from 2014 - present. After finding a book that matches what they are looking for, they will select the link next to the textbook,
 which will take them to where they can purchase, rent, or check out the textbook (i.e., Amazon, local library, etc.). 
-
-- Task 4: Upload syllabus to system
-  
-  - User configurable fields:
-    - date range: default 1990 to current, only uses years
-    - subject: default to all
-    - type: default to both (textbooks or books)
-    - author: default to all
-
-The user opens the application in the browser and begins on the homepage. The homepage, by default, recommends popular, possibly irrelevant, books or textbooks in the center of the page in a grid-like 
-fashion (ideally showing a picture). The user will select the file upload icon under the search bar and upload a syllabus to the application (ideally as a PDF or Word Document). The application will find
-keywords, phrases, or textbook information within the syllabus, which connects to the API and produces a list of recommended books or textbooks to the user related to the course subject or indicated in the
-syllabus.
 
 ### Technical "flow"
 
@@ -106,7 +89,7 @@ Program flow:
 
 ### Final (self) assessment
 
-- Figuring out the core prototype first based on my sketch and then thinking about enhancements (i.e., uploading syllabi) and how to add that as a main feature
+- Figuring out the core prototype first based on my sketch and then thinking about enhancements (i.e., uploading syllabi) and how to add that as an additional feature
 - I feel somewhat confident in implementing the spec as is but I would need help with figuring out what tools to use (Flask, APIs, Bootstrap, Folium, etc.).
 - If it's possible to use Amazon API or Open Search Library API for the intended goal, figuring out how to include the filter data (such as all subjects and authors), and whether
 it's possible to display this on a GUI. I also don't know if the application can bring up where to rent or check out the book instead of just purchasing on Amazon.
