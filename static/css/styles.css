@@ -1,0 +1,52 @@
+# may change many parts of the GUI (i.e., font, background colors, etc.)
+# body styles (default font, background color, and removes default margins and padding from body)
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+# container styles (defines a central container for the content with specific width, margins, background color, padding, and a box shadow)
+.container {
+    width: 80%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+# heading styles (centers the main heading)
+h1 {
+    text-align: center;
+}
+# form group styles (adds margin to the bottom of form groups for spacing)
+.form-group {
+    margin-bottom: 15px;
+}
+# label and input styles (esnures labels are block elements with some margin and makes the text input fields full width with padding)
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+# button styles (padding, background color, text color, border, and hover effects)
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list
