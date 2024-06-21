@@ -14,7 +14,7 @@
                 <li>
                     <strong>{{ book.title }}</strong> by {{ book.author }}<br>
                     {{ book.description }}<br>
-                    <a href="{{ url_for('open_ebook', isbn=book.isbn, title=book.title, author=book.author) }}">Open Ebook</a>
+                    <a href="{{ url_for('open_ebook', isbn=book.isbn, subject=book.subject, author=book.author) }}">Open Ebook</a>
                 </li>
             {% endfor %}
             </ul>
