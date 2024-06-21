@@ -45,7 +45,7 @@ Data structures:
 - a list to store text from syllabi and to generate keywords
 - for loops for text in PDF or Word Documents
 
-Core functions:
+Core functions: def index(), def search(), def open_e_book() # PROJECT SPEC NEEDS EDITING
 
 - def extract_text_from_pdf(file_path):
   - takes a file path to a PDF and extracts the text from each page
