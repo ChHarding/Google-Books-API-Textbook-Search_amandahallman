@@ -41,6 +41,7 @@ def get_books(query):
       if isbn and book["accessInfo"]["epub"]["isAvailable"]:
         textbooks.append({  # CH was books
           "subject": ", ".join(category_list),  # convert list to string with comma separator
+          "title": title,                       # AH added title of the book
           "author": author,
           "description": description,
           "isbn": isbn
@@ -48,7 +49,7 @@ def get_books(query):
         # CH should you not also use the title of the book?
 
       
-  return textbooks # CH was books
+  return books # CH was books # AH changed from textbooks to books
 
 
 
