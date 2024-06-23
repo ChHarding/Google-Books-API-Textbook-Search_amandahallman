@@ -41,7 +41,6 @@ def get_books(query):
       if isbn and book["accessInfo"]["epub"]["isAvailable"]:
         textbooks.append({  # CH was books
           "subject": ", ".join(category_list),  # convert list to string with comma separator
-          "title": title,                       # AH added title of the book
           "author": author,
           "description": description,
           "isbn": isbn
@@ -49,14 +48,14 @@ def get_books(query):
         # CH should you not also use the title of the book?
 
       
-  return books # CH was books # AH changed from textbooks to books
+  return textbooks # CH was books # debugging code in VS - changed back to textbooks
 
 
 
 # CH I moved the app start to textbook_search_app_CH.py
 # below are some tests to make sure the function works
 if __name__ == "__main__":
-    #print(get_books('intitle:"Linux system administration"')) 
+    print(get_books('intitle:"Linux system administration"')) 
     #print(get_books('inauthor:"Stepanek"')) 
     #print(get_books('inauthor:"Laura Townsend Kane" subject:"Information Science"'))
     
