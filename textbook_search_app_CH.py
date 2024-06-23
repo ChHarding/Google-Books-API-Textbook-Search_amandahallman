@@ -39,3 +39,5 @@ def open_ebook(isbn, subject, author): # was ibsn
         <html><body><script>window.history.go(-1);</script></body></html>''')
 
 app.run(debug=False, port=5000)
+
+# AH tested and debugged app; shows on web browser and works with links
