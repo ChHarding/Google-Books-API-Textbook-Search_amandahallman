@@ -61,10 +61,7 @@ def get_books(query):
 if __name__ == "__main__":
     print(get_books('intitle:"Linux system administration"')) 
     #print(get_books('inauthor:"Stepanek"')) 
-<<<<<<< HEAD
     #print(get_books('inauthor:"Laura Townsend Kane" subject:"Information Science"'))
-=======
     #print(get_books('inauthor:"Laura Townsend Kane" subject:"Information Science"'))
     
 # adding code to create a new branch and submit a pull request for Version 1 process report B
->>>>>>> 62906374882a5a71d47fea5ace3211bf82bde2e9
