@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ebook Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Search for Ebooks</title>
+    <style>
+    .autocomplete-items {
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+    .autocomplete-item {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff; 
+        border-bottom: 1px solid #d4d4d4; 
+    }
+    /*when hovering an item:*/
+    .autocomplete-item:hover {
+        background-color: #e9e9e9; 
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for Ebooks</h1>
+        <form action="/search" method="post">
+            <div class="form-group">
+                <label for="search_term">Search for:</label>
+                <input type="text" id="search_term" name="search_term" style="width: 300px;"required>
+                <input id="autocompleteInput" type="text" name="subject" placeholder="Subject" style="width: 300px;">
+            </div>
+            <div class="form-group">
+                <button type="submit" name="search_type" value="intitle">by Title</button>
+                <button type="submit" name="search_type" value="inauthor">by Author</button>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script>
+        // POssible subjects
+        const subject_categories = ["Physics",
+            "Chemistry",
+            "Biology",
+            "Mathematics",
+            "Statistics",
+            "Astronomy",
+            "Geology",
+            "Environmental Science",
+            "Computer Science",
+            "Medicine",
+            "Genetics",
+            "Biophysics",
+            "Biomechanics",
+            "Ecology",
+            "Biotechnology",
+            "Bioinformatics",
+            "Neuroscience",
+            "Biochemistry",
+            "Microbiology",
+            "Cell Biology",
+            "Molecular Biology",
+            "Evolution",
+            "Botany",
+            "Zoology",
+            "Meteorology",
+            "Oceanography",
+            "Geography",
+            "Geophysics",
+            "Physical Chemistry",
+            "Organic Chemistry",
+            "Inorganic Chemistry",
+            "Analytical Chemistry",
+            "Biochemistry",
+            "Biophysical Chemistry",
+            "Environmental Chemistry",
+            "Materials Science",
+            "Quantum Mechanics",
+            "Thermodynamics",
+            "Statistics",
+            "Biophysics",
+            "Pharmacology",
+            "Anthropology",
+            "Psychology",
+            "Sociology",
+            "Paleontology",
+            "Archaeology",
+            "Economics",
+            "Political Science",
+            "History",
+            "Agricultural Science",
+            "Forensic Science",
+            "Political Science",
+            "Library Science",
+            "Information Science",
+            "Cognitive Science",
+            "Neuroscience",
+            "Linguistics",
+            "Semiotics",
+            "Philosophy of Science",
+            "History of Science",
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Deep Learning",
+            "Reinforcement Learning",
+            "Computer Vision",
+            "Natural Language Processing",
+            "Speech Processing",
+            "Audio Processing",
+            "Music Processing",
+            "Image Processing",
+            "Video Processing",
+            "Signal Processing",
+            "Time Series Analysis",
+            "Financial Analysis",
+            "Economic Analysis",
+            "Social Network Analysis",
+            "Biological Analysis",
+            "Human-Computer Interaction",
+            "Computer Graphics",
+            "Computer Animation",
+            "Computer Simulation",
+            "Computer Modeling",
+            "Computer Visualization",
+            "History",
+            "Geography",
+            "Economics",
+            "Business",
+            "Law",
+            "Education",
+            "Philosophy",
+            "Religion",
+            "Literature",
+            "Art",
+            "Music",
+            "Film",
+            "Theater",
+            "Dance",
+            "Photography",
+            "Architecture",
+            "Design",
+            "Fashion",
+            "Culinary Arts",
+            "Sports",
+            "Games",
+            "Travel",
+            "Hobbies",
+            "Crafts",
+            "Gardening",
+            "Pets",
+            "Health",
+            "Fitness",
+            "Nutrition",
+            "Parenting",
+            "Relationships",
+            "Self-Help",
+            "Motivation",
+            "Spirituality",
+            "Astrology",
+            "Paranormal",
+            "True Crime",
+            "Humor",
+            "Comics",
+            "Graphic Novels",
+            "Science Fiction",
+            "Fantasy",
+            "Mystery",
+            "Thriller",
+            "Horror",
+            "Romance",
+            "Historical Fiction",
+            "Poetry",
+            "Drama",
+            "Classic Literature",
+            "Logic",
+            "Theoretical Computer Science",
+            "Information Theory",
+            "Systems Theory",
+            "Decision Theory",
+            "Game Theory",
+            "Control Theory",
+            "Automata Theory",
+            "Computational Complexity Theory",
+            "Computational Learning Theory",
+            "Computational Number Theory",
+            "Computational Group Theory",
+            "Computational Geometry",
+            "Computational Topology",
+            "Computational Algebraic Geometry",
+            "Computational Commutative Algebra",
+            "Computational Representation Theory",
+            "Computational Harmonic Analysis",
+            "Computational Functional Analysis",
+            "Computational Differential Equations",
+            "Computational Partial Differential Equations",
+            "Computational Integral Equations",
+            "Computational Stochastic Processes",
+            "Computational Probability Theory",
+            "Computational Statistics",
+            "Computational Data Analysis",
+            "Computational Machine Learning",
+            "Computational Deep Learning",
+            "Computational Reinforcement Learning",
+            "Computational Robotics",
+            "Computational Computer Vision",
+            "Computational Natural Language Processing",
+            "Computational Speech Processing",
+            "Computational Audio Processing",
+            "Computational Music Processing",
+            "Computational Image Processing",
+            "Computational Video Processing",
+            "Computational Signal Processing",
+            "Computational Time Series Analysis",
+            "Computational Financial Analysis",
+            "Computational Economic Analysis",
+            "Computational Social Network Analysis",
+            "Computational Biological Analysis",
+            "Human-Computer Interaction",
+            "Computer Graphics",
+            "Computer Vision",
+            "Computer Animation",
+            "Computer Simulation",
+            "Computer Modeling",
+            "Computer Visualization",
+            "Computer Augmented Reality",
+            "Computer Virtual Reality",
+            "Computer Mixed Reality",
+            "Computer Hyper Reality",
+            "Computer Simulated Reality",
+            "Computer Artificial Reality",
+            "Computer Synthetic Reality",
+            "Computer Extended Reality",
+            "Computer Immersive Reality",
+            "Computer Interactive Reality",
+            "Computer Collaborative Reality",
+            "Computer Distributed Reality",
+            "Computer Networked Reality",
+            "Computer Social Reality",
+            "Computer Collective Reality",
+            "Computer Ambient Reality",
+            "Computer Pervasive Reality",
+            "Computer Ubiquitous Reality",
+            "Chemical Engineering",
+            "Biomolecular Engineering",
+            "Materials Engineering",
+            "Process Engineering",
+            "Civil Engineering",
+            "Environmental Engineering",
+            "Fire Protection Engineering",
+            "Sanitary Engineering",
+            "Municipal or Urban Engineering",
+            "Irrigation Engineering",
+            "Electrical Engineering",
+            "Electronics Engineering",
+            "Telecommunications Engineering",
+            "Power Engineering",
+            "Mechanical Engineering",
+            "Aerospace Engineering",
+            "Automotive Engineering",
+            "Marine Engineering",
+            "Nuclear Engineering",
+            "Mining Engineering",
+            "Petroleum Engineering",
+            "Software Engineering",
+            "Systems Engineering",
+            "Structural Engineering",
+            "Transportation Engineering",
+            "Geotechnical Engineering",
+            "Hydraulic Engineering",
+            "Coastal Engineering",
+            "Ocean Engineering",
+            "Water Resources Engineering",
+            "Energy Engineering",
+            "Acoustical Engineering",
+            "Manufacturing Engineering",
+            "Thermal Engineering",
+            "Sports Engineering",
+            "Biomedical Engineering",
+            "Agricultural Engineering",
+            "Aquaculture Engineering",
+            "Food Engineering",
+            "Bioprocess Engineering",
+            "Biotechnology Engineering",
+            "Genetic Engineering",
+            "Pharmaceutical Engineering",
+            "Tissue Engineering",
+            "Regenerative Medicine Engineering",
+            "Neural Engineering",
+            "Rehabilitation Engineering",
+            "Clinical Engineering",
+            "Health Systems Engineering",
+            "Industrial Engineering",
+            "Operations Research",
+            "Engineering Management",
+            "Logistics Engineering",
+            "Supply Chain Engineering"];
+        
+        // Autocomplete function
+        function autocomplete(inp, arr) {
+          let currentFocus;
+          inp.addEventListener("input", function(e) {
+              let a, b, i, val = this.value;
+              closeAllLists();
+              if (!val) { return false;}
+              currentFocus = -1;
+              a = document.createElement("DIV");
+              a.setAttribute("id", this.id + "autocomplete-list");
+              a.setAttribute("class", "autocomplete-items");
+              this.parentNode.appendChild(a);
+              for (i = 0; i < arr.length; i++) {
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                  b = document.createElement("DIV");
+                  b.setAttribute("class", "autocomplete-item");
+                  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                  b.innerHTML += arr[i].substr(val.length);
+                  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                  b.addEventListener("click", function(e) {
+                      inp.value = this.getElementsByTagName("input")[0].value;
+                      closeAllLists();
+                  });
+                  a.appendChild(b);
+                }
+              }
+          });
+          inp.addEventListener("keydown", function(e) {
+              let x = document.getElementById(this.id + "autocomplete-list");
+              if (x) x = x.getElementsByTagName("div");
+              if (e.keyCode == 40) {
+                currentFocus++;
+                addActive(x);
+              } else if (e.keyCode == 38) { //up
+                currentFocus--;
+                addActive(x);
+              } else if (e.keyCode == 13) {
+                e.preventDefault();
+                if (currentFocus > -1) {
+                  if (x) x[currentFocus].click();
+                }
+              }
+          });
+          function addActive(x) {
+            if (!x) return false;
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            x[currentFocus].classList.add("autocomplete-active");
+          }
+          function removeActive(x) {
+            for (let i = 0; i < x.length; i++) {
+              x[i].classList.remove("autocomplete-active");
+            }
+          }
+          function closeAllLists(elmnt) {
+            let x = document.getElementsByClassName("autocomplete-items");
+            for (let i = 0; i < x.length; i++) {
+              if (elmnt != x[i] && elmnt != inp) {
+              x[i].parentNode.removeChild(x[i]);
+              }
+            }
+          }
+          document.addEventListener("click", function (e) {
+              closeAllLists(e.target);
+          });
+        }
+        
+        // Initiate the autocomplete function
+        autocomplete(document.getElementById("autocompleteInput"), subject_categories);
+    </script>
+
+</body>
+</html>
