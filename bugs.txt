@@ -1,1 +1,49 @@
+  # one bug?
+  textbooks = []                                  # will return a list of textbooks
+  if items['totalItems'] > 0:
+    print(f"{items['totalItems']} books found")
+    for book in items["items"]: # CH was missing : and books needed to be book
+      volumeInfo = book["volumeInfo"]
+      category_list = volumeInfo.get("categories", ["None"]) # Google books API doesn't have subject)
+      author = volumeInfo.get("authors", ["Unknown"])[0] # CH was missing " for "Unknown"  # maybe use multiple authors as with categories
+      description = volumeInfo.get("description", "No description")
+      isbn = None
+      for identifier in volumeInfo.get("industryIdentifiers", []):
+        if identifier["type"] in ["ISBN_13", "ISBN_10"]: # CH was missing " type" and "ISBN_10"
+          isbn = identifier["identifier"]
+          break
+      
+      # turn out we don't need to use the free ebook filter but we 
+      # need to check that the book is available in epub format
+      if isbn and book["accessInfo"]["epub"]["isAvailable"]:
+        textbooks.append({  # CH was books
+          "subject": ", ".join(category_list),  # convert list to string with comma separator
+          "author": author,
+          "description": description,
+          "isbn": isbn
+        })
+        # CH should you not also use the title of the book?
 
+
+# second bug ?
+@app.route('/')
+def search():
+  search_term = request/form['search_term']
+  search_type = request/form['search_type']
+  query = f"{search_type}:{search term}"
+  books = get_books(query)
+  return render_template('results.html', books=books)
+
+@app.route('/open_ebook/<isbn>/<subject>/<author>')
+def open_ebook(ibsn, subject, author):
+  env = Environment(loader=FileSystemLoader('templates'))
+  template = env.get_template('google_ebook_reader_template.html')
+  context = {'isbn': isbn}
+  rendered_template = template.render(context)
+  temp_html_file = f'{subject}_by_{author}_ebook.html
+
+  with open(temp_html_file, 'w') as file:
+    file.write(rendered_template)
+
+  webbrowser.open(temp_html_file_)
+  return redirect(url_for('index'))
