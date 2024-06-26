@@ -1,5 +1,6 @@
 .DS_Store
 ebook_results
+old
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
