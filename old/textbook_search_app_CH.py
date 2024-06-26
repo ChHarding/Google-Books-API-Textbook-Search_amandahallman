@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, render_tem
 import requests
 import webbrowser
 from jinja2 import Environment, FileSystemLoader
-from get_ebooks_function import get_books  # CH was missing this import
+from old.get_ebooks_function import get_books  # CH was missing this import
 import os
 
 app = Flask(__name__) # will get imported by run_app.py

@@ -28,5 +28,5 @@ def open_ebook(ibsn, subject, author):
   with open(temp_html_file, 'w') as file:
     file.write(rendered_template)
 
-  webbrowser.open(temp_html_file
-  return redirect(url_for('index')
+  webbrowser.open(temp_html_file_)
+  return redirect(url_for('index'))
