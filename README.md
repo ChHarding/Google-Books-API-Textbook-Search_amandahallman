@@ -1,3 +1,5 @@
+# Old Project Spec (For Reference - Needs Updating)
+
 # Amanda-Hallman-Project-Spec
 Project spec for HCI 584 based on recommending textbook or book information relevant to college or university courses and syllabi.
 
