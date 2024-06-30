@@ -81,7 +81,7 @@ Core functions: def index(), def perform_search(), def open_ebook()
   - uses Jinja2 to render an HTML template ('google_ebook_reader_template.html') with the eBook's ISBN
   - writes the rendered HTML to a temporary file
   - opens the temporary file in the web browser
-  - usees JavaScript to navigate back to the previous page (search results)
+  - uses JavaScript to navigate back to the previous page (search results)
 
 ### Revised (below)
 
@@ -109,12 +109,12 @@ Proposed Additional Feature(s):
 
 - Syllabus upload (from original project spec)
 
-  - add a file upload form: modify 'search_w_autcomplete.html' template to include file upload form for the syllabus
+  - add a file upload form: modify 'search_w_autocomplete.html' template to include file upload form for the syllabus
   - handle file uploads: create a new route in the Flask application to handle the file upload
   - use the ChatGPT API to process the uploaded syllabus
   - render the processed syllabus in a new HTML template
 
 - Links for where to purchase the [text]book
 - Photos of the [text]books on the GUI
-- Search for course at specific university (i.e, Iowa State) ??
+- Search for course at specific university (i.e., Iowa State) ??
 
