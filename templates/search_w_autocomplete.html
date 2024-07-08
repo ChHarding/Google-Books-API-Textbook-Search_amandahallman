@@ -42,10 +42,15 @@
                 <button type="submit" name="search_type" value="inauthor">by Author</button>
             </div>
         </form>
+        <form action="/upload_syllabus" method="post" enctype="'multipart/form-data">
+          <div class="form-group">
+            <button type="submit">Upload</button>button>
+          </div>
+        </form>
     </div>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script>
-        // POssible subjects
+        // Possible subjects
         const subject_categories = ["Physics",
             "Chemistry",
             "Biology",
