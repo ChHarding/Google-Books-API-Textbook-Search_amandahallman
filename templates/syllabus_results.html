@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Syllabus Result</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+    <title>Syllabus Results</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Processed Syllabus</h1>
-        <prev>{{ syllabus }}</prev>
-        <a href="/">Back to search</a>
-    </div>
+    <h1>Extracted Textbooks</h1>
+    {% if textbooks %}
+        <ul>
+        {% for textbook in textbooks %}
+            <li>{{ textbook }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No textbooks found in the uploaded syllabus.</p>
+    {% endif %}
+    <a href="/">Back to search</a>
 </body>
 </html>

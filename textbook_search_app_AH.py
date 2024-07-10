@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, render_tem
 import requests
 import webbrowser
 from jinja2 import Environment, FileSystemLoader
-from old.get_ebooks_function import get_books
+from get_ebooks_function_old import get_books
 import os
 
 app = Flask(__name__) # will get imported by run_app.py (initializes the Flask application)

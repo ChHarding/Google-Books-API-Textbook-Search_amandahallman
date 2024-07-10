@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Syllabus</title>
+</head>
+<body>
+    <h1>Upload Syllabus</h1>
+    <form action="/upload_syllabus" method="post" enctype="multipart/form-data">
+        <label for="syllabus_pdf">Select PDF:</label>
+        <input type="file" name="syllabus_pdf" id="syllabus_pdf" accept=".pdf" required>
+        <button type="submit">Upload</button>
+    </form>
+    <a href="/">Back to search</a>
+</body>
+</html>
