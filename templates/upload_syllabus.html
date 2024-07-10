@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Upload Syllabus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Upload Syllabus</h1>
-    <form action="/upload_syllabus" method="post" enctype="multipart/form-data">
-        <label for="syllabus_pdf">Select PDF:</label>
-        <input type="file" name="syllabus_pdf" id="syllabus_pdf" accept=".pdf" required>
-        <button type="submit">Upload</button>
-    </form>
-    <a href="/">Back to search</a>
+    <div class="container">
+        <h1>Upload Syllabus</h1>
+        <form action="{{ url_for('upload_syllabus') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="syllabus_pdf" accept="application/pdf">
+            <button type="submit">Upload</button>
+        </form>
+        <a href="/">Back to search</a>
+    </div>
 </body>
 </html>

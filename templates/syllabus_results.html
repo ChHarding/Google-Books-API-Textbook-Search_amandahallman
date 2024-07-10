@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Syllabus Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Extracted Textbooks</h1>
-    {% if textbooks %}
+    <div class="container">
+        <h1>Syllabus Results</h1>
         <ul>
         {% for textbook in textbooks %}
             <li>{{ textbook }}</li>
         {% endfor %}
         </ul>
-    {% else %}
-        <p>No textbooks found in the uploaded syllabus.</p>
-    {% endif %}
-    <a href="/">Back to search</a>
+        <a href="/">Back to search</a>
+    </div>
 </body>
 </html>
