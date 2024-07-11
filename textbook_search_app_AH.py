@@ -1,18 +1,30 @@
-from flask import Flask, render_template, request, redirect, url_for, render_template_string
+from flask import Flask, render_template, request, redirect, url_for, render_template_string, session
 from werkzeug.utils import secure_filename
 import requests
 import webbrowser
 from jinja2 import Environment, FileSystemLoader
 from get_ebooks_function import get_books  
 import os
-import fitz  # PyMuPDF
+import fitz  # pip install PyMuPDF
+from API_keys import openai_api_key # format must be: openai_api_key = "123456789"
+from openai import OpenAI
+
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '.'
+session["client"] = OpenAI(
+    api_key
+)
+
+
+#UPLOAD_FOLDER = '.'
+UPLOAD_FOLDER = 'uploads/'  # needs to end in a slash!!!
 ALLOWED_EXTENSIONS = {'pdf'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DEBUG'] = True
+app.config["client"] = OpenAI(
+        api_key=openai_api_key # from API_keys.py
+            )
 
 @app.route('/', methods=['GET'])
 def index():
@@ -82,7 +94,7 @@ def process_syllabus(file_path):
             print(text[:500])  # Print the first 500 characters of each page for debugging
             lines = text.split('\n')
             for line in lines:
-                if "Textbook:" in line:
+                if "textbook" in line.lower() or "reading" in line.lower() :
                     textbooks.append(line.strip())
                     print(f"Found textbook line: {line.strip()}")
 
@@ -92,5 +104,5 @@ def process_syllabus(file_path):
     return textbooks
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
 
