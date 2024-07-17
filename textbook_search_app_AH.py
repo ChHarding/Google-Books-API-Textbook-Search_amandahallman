@@ -6,25 +6,35 @@ from jinja2 import Environment, FileSystemLoader
 from get_ebooks_function import get_books  
 import os
 import fitz  # pip install PyMuPDF
-from API_keys import openai_api_key # format must be: openai_api_key = "123456789"
+from api_key import openai_api_key # format must be: openai_api_key = "123456789"
 from openai import OpenAI
+from pdfminer.high_level import extract_text
+import json
+from pprint import pprint
 
 
 app = Flask(__name__)
 
-session["client"] = OpenAI(
-    api_key
-)
+# Initialize OpenAI client
+client = OpenAI(api_key=openai_api_key)  # From api_key.py
+
+#api_key = openai_api_key
+
+#app.secret_key = 'your_secret_key'
+
+
+#session["client"] = OpenAI(
+    #api_key
+#)
 
 
 #UPLOAD_FOLDER = '.'
-UPLOAD_FOLDER = 'uploads/'  # needs to end in a slash!!!
+UPLOAD_FOLDER = 'syllabus_pdf/'  # needs to end in a slash!!!
 ALLOWED_EXTENSIONS = {'pdf'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DEBUG'] = True
-app.config["client"] = OpenAI(
-        api_key=openai_api_key # from API_keys.py
-            )
+app.config["client"] = client
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -63,17 +73,22 @@ def allowed_file(filename):
 def upload_syllabus():
     if request.method == 'POST':
         if 'syllabus_pdf' not in request.files:
+            print("No file part in the request")
             return redirect(request.url)
+        
         file = request.files['syllabus_pdf']
         if file.filename == '':
+            print("No selected file")
             return redirect(request.url)
+        
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
 
             # Process uploaded syllabus PDF to extract textbooks
-            textbooks = process_syllabus(file_path)
+            textbooks = extract_textbook_from_syllabus(client, file_path)
+            #process_syllabus(file_path)
 
             # Debugging: print the extracted textbooks
             print("Extracted Textbooks:", textbooks)
@@ -84,25 +99,79 @@ def upload_syllabus():
             return render_template('syllabus_results.html', textbooks=textbooks)
     return render_template('upload_syllabus.html')
 
+# TAKEN FROM process_ChatGPT_CH (below)
+
+def extract_textbook_from_syllabus(client, pdf):
+    # Convert PDF to text
+    syllabus_text = extract_text(pdf)
+
+    # Remove newlines, extra spaces, etc.
+    syllabus_text = " ".join(syllabus_text.split())
+
+    # Call the function to extract textbooks using OpenAI API
+    text_book_list = extract_textbooks(client, syllabus_text)
+    return text_book_list
+
+
+def extract_textbooks(client, syllabus_text):
+    query_text = '''Extract information about any textbooks mentioned in the syllabus. Extract title, authors, publisher, edition, ISBN number, if they are required or not, and create a list of dictionaries in JSON format in this format (showing example values): [{"title": "Physics of the Atmosphere and Climate", "authors": "Salby, M., B. Thamdrup", "publisher": "Cambridge University Press", "edition": "2012", "isbn": "978-0-12-415955-6", "required": true}, etc. ]. "required" must be either true or false. For missing dictionary values use the JSON null. If no textbooks are mentioned return "Error: no textbooks found". The syllabus text is as follows: ''' + syllabus_text
+
+    try:
+        completion = client.Completion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "user",
+                    "content": query_text,
+                    "max_tokens": 1500,
+                    "temperature": 0.0,  # super deterministic only
+                }
+            ],
+        )
+    except openai.OpenAIError as e:
+        print(f"OpenAI API error: {e}")
+        return None
+
+    # Extract the JSON text from the response
+    json_text = completion['choices'][0]['message']['content']
+
+    # Convert the JSON text to a list of dictionaries
+    try:
+        textbooks_list = json.loads(json_text)
+    except json.JSONDecodeError:
+        return None
+    
+    # Catch the error case
+    if "Error" in textbooks_list[0] or "error" in textbooks_list[0]:
+            return None
+
+    return textbooks_list
+
+
+'''
 def process_syllabus(file_path):
     textbooks = []
     print(f"Processing syllabus file: {file_path}")
+    
     with fitz.open(file_path) as doc:
         for page_num, page in enumerate(doc, start=1):
             text = page.get_text()
-            print(f"Page {page_num} Content:")
-            print(text[:500])  # Print the first 500 characters of each page for debugging
             lines = text.split('\n')
             for line in lines:
-                if "textbook" in line.lower() or "reading" in line.lower() :
+                # Lowercase the line for easier keyword matching
+                lower_line = line.lower()
+                if "textbook" in lower_line or "required reading" in lower_line or "recommended reading" in lower_line:
                     textbooks.append(line.strip())
                     print(f"Found textbook line: {line.strip()}")
+                # Optional: Add more sophisticated parsing here
+                # For example, using regular expressions to match ISBN or title-author patterns
 
     if not textbooks:
         print("No textbook information found in the syllabus.")
 
     return textbooks
-
+'''
+    
 if __name__ == '__main__':
-    app.run(debug=False, port=5000)
+    app.run(debug=True, port=5000)
 
