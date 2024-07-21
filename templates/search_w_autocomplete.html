@@ -63,32 +63,24 @@
 
         /* Autocomplete dropdown styling */
         .autocomplete-items {
-            border: 1px solid #ddd; /* Border color */
-            border-radius: 4px; /* Rounded corners */
-            background-color: #ffffff; /* Background color */
-            max-height: 300px; /* Limit the height */
-            overflow-y: auto; /* Add scroll if needed */
-            position: absolute; /* Positioning for dropdown */
-            z-index: 99; /* Ensure dropdown is above other elements */
-            top: 100%;
-            left: 0;
-            right: 0;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
         }
-
         .autocomplete-item {
-            padding: 8px 12px; /* Padding inside each item */
-            font-size: 16px; /* Font size */
-            cursor: pointer; /* Pointer cursor on hover */
-            background-color: #fff; /* Background color */
-            border-bottom: 1px solid #ddd; /* Border color */
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff; 
+            border-bottom: 1px solid #d4d4d4; 
         }
-
+        /*when hovering an item:*/
         .autocomplete-item:hover {
-            background-color: #e9ecef; /* Slightly different hover color */
-        }
-
-        .autocomplete-active {
-            background-color: #e9ecef; /* Active item background color */
+            background-color: #e9e9e9; 
         }
     </style>
 </head>
