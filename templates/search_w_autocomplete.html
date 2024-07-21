@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Ebook Search</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <title>Search for Ebooks</title>
     <style>
     .autocomplete-items {
         border: 1px solid #d4d4d4;
@@ -30,7 +29,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Search for Ebooks</h1>
+        <h1>Search for Textbooks</h1>
         <form action="/search" method="post">
             <div class="form-group">
                 <label for="search_term">Search for:</label>
@@ -379,6 +378,5 @@
         // Initiate the autocomplete function
         autocomplete(document.getElementById("autocompleteInput"), subject_categories);
     </script>
-
 </body>
 </html>

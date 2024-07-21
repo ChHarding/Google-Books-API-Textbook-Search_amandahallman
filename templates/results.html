@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="container">
+        <a href="/">Back to search</a>
         <h1>Search Results</h1>
         {% if books %}
             <ul>
@@ -24,7 +25,6 @@
         {% else %}
             <p>No match found using search parameters</p>
         {% endif %}
-        <a href="/">Back to search</a>
     </div>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
