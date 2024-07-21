@@ -5,7 +5,43 @@
     <title>Syllabus Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <style>
-        .selected { background-color: lightgrey; } /* Highlight color for selected item */
+        body {
+            font-family: Helvetica, Sans-serif; /* Apply Helvetica, Sans-serif font */
+        }
+        .selected { 
+            background-color: lightgrey; /* Highlight color for selected item */
+        }
+        .container {
+            max-width: 1200px; /* Optional: adjust container width */
+            margin: 0 auto; /* Optional: center container */
+            padding: 20px; /* Optional: add padding */
+            background-color: #ffffff; /* Optional: background color */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow */
+        }
+        a {
+            color: #007bff; /* Optional: link color */
+            text-decoration: none; /* Optional: remove underline from links */
+        }
+        a:hover {
+            text-decoration: underline; /* Optional: underline on hover */
+        }
+        h1 {
+            color: #333; /* Optional: heading color */
+            text-align: center; /* Optional: center align heading */
+        }
+        ul {
+            list-style-type: none; /* Optional: remove bullet points from list */
+            padding: 0; /* Optional: remove padding */
+        }
+        li {
+            padding: 10px; /* Optional: add padding to list items */
+            border-bottom: 1px solid #ddd; /* Optional: add border between list items */
+            cursor: pointer; /* Optional: change cursor to pointer on hover */
+        }
+        li:hover {
+            background-color: #f5f5f5; /* Optional: change background color on hover */
+        }
     </style>
 </head>
 <body>
@@ -46,3 +82,5 @@
             document.getElementById('isbn').value = isbn; // Corrected this line
         }
     </script>
+</body>
+</html>

@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <title>Search Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Helvetica, Sans-serif; /* Apply Helvetica, Sans-serif font */
+        }
+        .container {
+            max-width: 1200px; /* Optional: adjust container width */
+            margin: 0 auto; /* Optional: center container */
+            padding: 20px; /* Optional: add padding */
+            background-color: #ffffff; /* Optional: background color */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow */
+        }
+        a {
+            color: #007bff; /* Optional: link color */
+            text-decoration: none; /* Optional: remove underline from links */
+        }
+        a:hover {
+            text-decoration: underline; /* Optional: underline on hover */
+        }
+        h1 {
+            color: #333; /* Optional: heading color */
+            text-align: center; /* Optional: center align heading */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
