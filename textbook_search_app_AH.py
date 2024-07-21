@@ -128,7 +128,7 @@ def extract_textbooks(client, syllabus_text):
                 }
             ],
         )
-    except openai.OpenAIError as e:
+    except Exception as e:
         print(f"OpenAI API error: {e}")
         return None
 
@@ -173,5 +173,5 @@ def process_syllabus(file_path):
 '''
     
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
 
