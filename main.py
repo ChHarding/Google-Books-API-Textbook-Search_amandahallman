@@ -9,6 +9,7 @@ import json
 from pdfminer.high_level import extract_text # pip install pdfminer.six
 from api_key import openai_api_key # format must be: openai_api_key = "123456789"
 from openai import OpenAI
+import time
 
 
 app = Flask(__name__)
