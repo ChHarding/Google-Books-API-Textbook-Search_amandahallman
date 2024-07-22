@@ -4,16 +4,83 @@
     <meta charset="UTF-8">
     <title>Syllabus Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Helvetica, Sans-serif; /* Apply Helvetica, Sans-serif font */
+        }
+        .selected { 
+            background-color: lightgrey; /* Highlight color for selected item */
+        }
+        .container {
+            max-width: 1200px; /* Optional: adjust container width */
+            margin: 0 auto; /* Optional: center container */
+            padding: 20px; /* Optional: add padding */
+            background-color: #ffffff; /* Optional: background color */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow */
+        }
+        a {
+            color: #007bff; /* Optional: link color */
+            text-decoration: none; /* Optional: remove underline from links */
+        }
+        a:hover {
+            text-decoration: underline; /* Optional: underline on hover */
+        }
+        h1 {
+            color: #333; /* Optional: heading color */
+            text-align: center; /* Optional: center align heading */
+        }
+        ul {
+            list-style-type: none; /* Optional: remove bullet points from list */
+            padding: 0; /* Optional: remove padding */
+        }
+        li {
+            padding: 10px; /* Optional: add padding to list items */
+            border-bottom: 1px solid #ddd; /* Optional: add border between list items */
+            cursor: pointer; /* Optional: change cursor to pointer on hover */
+        }
+        li:hover {
+            background-color: #f5f5f5; /* Optional: change background color on hover */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Syllabus Results</h1>
-        <ul>
-        {% for textbook in textbooks %}
-            <li>{{ textbook }}</li>
-        {% endfor %}
-        </ul>
+        <p>Click on a textbook to select it</p>
+        <form id="searchForm" action="/search" method="post">
+            <input type="hidden" name="search_term" id="search_term" value="">
+            <input type="hidden" name="search_type" id="search_type" value="derived">
+            <input type="hidden" name="authors" id="authors" value="">
+            <input type="hidden" name="isbn" id="isbn" value="">
+            <ul>
+            {% for textbook in textbooks %}
+                <li onclick="selectTextbook('{{ textbook.title }}', '{{ textbook.authors }}', '{{ textbook.isbn }}', this)">
+                    {{ textbook.title }} by {{ textbook.authors }},  
+                    Publ: {{ textbook.publisher }},  
+                    Ed: {{ textbook.edition }}<br> 
+                    ISBN: {{ textbook.isbn }},  
+                    Requr.: {{ textbook.required }}, 
+                    Subj: {{ textbook.subject }},
+                </li>
+            {% endfor %}
+            </ul>
+            <button type="submit">Search for selected Textbook</button>
+        </form>
         <a href="/">Back to search</a>
     </div>
+    <script>
+        function selectTextbook(title, authors, isbn, element) {
+            // Remove selection from any previously selected item
+            document.querySelectorAll('li').forEach(li => li.classList.remove('selected'));
+            // Mark the current item as selected
+            element.classList.add('selected');
+    
+            // Update the hidden input values with the selected textbook's information
+            document.getElementById('search_term').value = title;
+            document.getElementById('authors').value = authors;
+            document.getElementById('isbn').value = isbn; // Corrected this line
+        }
+    </script>
 </body>
 </html>

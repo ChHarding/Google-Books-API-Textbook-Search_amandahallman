@@ -4,6 +4,50 @@
     <meta charset="UTF-8">
     <title>Upload Syllabus</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Helvetica, Sans-serif; /* Apply Helvetica, Sans-serif font */
+        }
+        .container {
+            max-width: 600px; /* Optional: adjust container width */
+            margin: 0 auto; /* Optional: center container */
+            padding: 20px; /* Optional: add padding */
+            background-color: #f9f9f9; /* Optional: background color */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow */
+        }
+        h1 {
+            color: #333; /* Optional: heading color */
+            text-align: center; /* Optional: center align heading */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            margin-top: 10px; /* Optional: space between file input and button */
+            padding: 10px 20px; /* Optional: button padding */
+            background-color: #007bff; /* Optional: button background color */
+            color: #fff; /* Optional: button text color */
+            border: none; /* Optional: remove border */
+            border-radius: 4px; /* Optional: rounded corners */
+            cursor: pointer; /* Optional: pointer cursor */
+        }
+        button:hover {
+            background-color: #0056b3; /* Optional: button background color on hover */
+        }
+        a {
+            display: block;
+            margin-top: 20px; /* Optional: space between form and link */
+            text-align: center; /* Optional: center align link */
+            color: #007bff; /* Optional: link color */
+            text-decoration: none; /* Optional: remove underline from links */
+        }
+        a:hover {
+            text-decoration: underline; /* Optional: underline on hover */
+        }
+    </style>
 </head>
 <body>
     <div class="container">

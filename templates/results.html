@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <title>Search Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Helvetica, Sans-serif; /* Apply Helvetica, Sans-serif font */
+        }
+        .container {
+            max-width: 1200px; /* Optional: adjust container width */
+            margin: 0 auto; /* Optional: center container */
+            padding: 20px; /* Optional: add padding */
+            background-color: #ffffff; /* Optional: background color */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: box shadow */
+        }
+        a {
+            color: #007bff; /* Optional: link color */
+            text-decoration: none; /* Optional: remove underline from links */
+        }
+        a:hover {
+            text-decoration: underline; /* Optional: underline on hover */
+        }
+        h1 {
+            color: #333; /* Optional: heading color */
+            text-align: center; /* Optional: center align heading */
+        }
+        ul {
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Remove default margin */
+        }
+        li {
+            margin-bottom: 20px; /* Add space between list items */
+            padding: 10px 0; /* Add padding for better separation */
+            border-bottom: 1px solid #ddd; /* Optional: add a border for better visual separation */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <a href="/">Back to search</a>
         <h1>Search Results</h1>
         {% if books %}
             <ul>
@@ -15,13 +49,15 @@
                     <strong>{{ book.title }}</strong> by {{ book.author }}<br>
                     {{ book.description }}<br>
                     <a href="{{ url_for('open_ebook', isbn=book.isbn, subject=book.subject, author=book.author) }}">Open Ebook</a>
+                    <a href="https://play.google.com/store/search?q={{ book.isbn }}&c=books" target="_blank">View on Google Play</a>
+                    <a href="https://www.amazon.com/s?k={{ book.isbn }}" target="_blank">View on Amazon</a>
+
                 </li>
             {% endfor %}
             </ul>
         {% else %}
             <p>No match found using search parameters</p>
         {% endif %}
-        <a href="/">Back to search</a>
     </div>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>

@@ -14,17 +14,17 @@ from openai import OpenAI
 app = Flask(__name__)
 
 #UPLOAD_FOLDER = '.'
-UPLOAD_FOLDER = 'uploads/'  # needs to end in a slash!!!
-ALLOWED_EXTENSIONS = {'pdf'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+UPLOAD_FOLDER = 'uploads/'  # needs to end in a slash, directory where uploaded files will be saved
+ALLOWED_EXTENSIONS = {'pdf'} # set of file extensions that are allowed for uplaods (only PDFs for this)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER # set folder where uploads will be saved
 app.config['DEBUG'] = True
 app.config["client"] = OpenAI(
-        api_key=openai_api_key # from API_keys.py
+        api_key=openai_api_key # from API_keys.py, initialize the OpenAI client with the API key
             )
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('search_w_autocomplete.html')
+    return render_template('search_w_autocomplete.html') # renders the main search page, returns HTML template (search_w_auto..)
 
 @app.route('/search', methods=['POST'])
 def perform_search():
@@ -37,7 +37,7 @@ def perform_search():
     if search_type == "derived":
         if isbn != "None":
             query = f'isbn:{isbn}'
-            books = get_books(query)
+            books = get_books(query)                                    # constructs query based on search type and parameters
         else:
             query = f'"intitle:{search_term}" AND "inauthor:{authors}"'
             books = get_books(query)
@@ -46,17 +46,17 @@ def perform_search():
                 books = get_books(query)
     else:
         query = f'{search_type}:"{search_term}" insubject:"{subject}"'
-        books = get_books(query)
+        books = get_books(query)                                        # get_books function to fetch book data
             
     return render_template('results.html', books=books)
 
-@app.route('/open_ebook/<isbn>/<subject>/<author>', methods=['GET'])
+@app.route('/open_ebook/<isbn>/<subject>/<author>', methods=['GET']) # loads Jinja2 template to create HTML page
 def open_ebook(isbn, subject, author):
     env = Environment(loader=FileSystemLoader('ebooks'))
     template = env.get_template('google_ebook_reader_template.html')
     context = {'isbn': isbn}
     rendered_template = template.render(context)
-    temp_html_file = os.path.abspath(f'ebooks/{subject}_by_{author}_ebook.html')
+    temp_html_file = os.path.abspath(f'ebooks/{subject}_by_{author}_ebook.html') # saves rendered HTML to temp. file and opens in web
     with open(temp_html_file, 'w') as file:
         file.write(rendered_template)
     webbrowser.open('file://' + temp_html_file)
@@ -65,11 +65,11 @@ def open_ebook(isbn, subject, author):
     return render_template_string('''         
         <html><body><script>window.history.go(-1);</script></body></html>''')
 
-def allowed_file(filename):
+def allowed_file(filename): # checks if file extension is allowed (PDF)
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def extract_textbooks_info(syllabus_text):
+def extract_textbooks_info(syllabus_text): # extracts textbook information from the syllabus using GPT-3
     '''Extract textbook information from the syllabus text using OpenAI's GPT-3 model.
     Returns a list of dictionaries with textbook information.'''
 
@@ -137,7 +137,7 @@ def extract_textbooks_info(syllabus_text):
 
     return good_textbooks_list
 
-@app.route('/upload_syllabus', methods=['GET', 'POST'])
+@app.route('/upload_syllabus', methods=['GET', 'POST']) # handles the upload of the syllabus PDF and processes it
 def upload_syllabus():
     if request.method == 'POST':
         if 'syllabus_pdf' not in request.files:
@@ -155,10 +155,6 @@ def upload_syllabus():
             # This can't fail and will always return a string 
             text = process_syllabus(file_path)
 
-            # Debugging: print the extracted textbooks
-            #print("Extracted syllabus text:", text)
-
-
             # Debug: extract textbooks info from syllabus text using ChatGPT
             textbooks_info = extract_textbooks_info(text)
 
@@ -168,7 +164,7 @@ def upload_syllabus():
             return render_template('syllabus_results.html', textbooks=textbooks_info)
     return render_template('upload_syllabus.html')
 
-def process_syllabus(pdf):
+def process_syllabus(pdf):  # extracts and cleans text from the PDF syllabus
  
     print(f"Processing syllabus file: {pdf}")
     text = extract_text(pdf)
@@ -178,6 +174,6 @@ def process_syllabus(pdf):
 
     return text
 
-if __name__ == '__main__':
+if __name__ == '__main__': # runs the flask application
     app.run(debug=False, port=5000)
 
