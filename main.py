@@ -9,7 +9,6 @@ import json
 from pdfminer.high_level import extract_text # pip install pdfminer.six
 from api_key import openai_api_key # format must be: openai_api_key = "123456789"
 from openai import OpenAI
-import time
 
 
 app = Flask(__name__)
@@ -78,30 +77,23 @@ def extract_textbooks_info(syllabus_text): # extracts textbook information from 
 
     query_text = '''Extract information about any textbooks mentioned in the syllabus. Extract title, authors. If you can also extract publisher, edition, ISBN number, if textbooks are required or not. Also try to derive what scientific discipline or subject that textbook belongs to. Create a list of dictionaries in JSON format, one for each textbook,  in this format (showing example(!) values): [{"title": "Physics of the Atmosphere and Climate", "authors": "Salby, M., B. Thamdrup", "publisher": "Cambridge University Press", "edition": "2012", "isbn": "978-0-12-415955-6", "required": true, "subject": "atmospheric science}, etc. ]. "required" must be either true or false. For missing dictionary values use the Json value null. If no textbooks are mentioned return "Error: not textbooks found". The syllabus text is as follows:\n ''' + syllabus_text
 
-    counter = 5
-    while counter > 0:
-        try:
-            chat_completion = client.chat.completions.create(
-                messages=[
-                    {
-                        "role": "user",
-                        "content": query_text,
-                        "max_tokens": 1500,
-                        "temperature": 0.0,  # super deterministic only
-                    }
-                ],
-                model="gpt-3.5-turbo",
-            )   
+    try:
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": query_text,
+                    "max_tokens": 1500,
+                    "temperature": 0.0,  # super deterministic only
+                }
+            ],
+            model="gpt-3.5-turbo",
+        )   
 
-            # choices is a list b/c we could request multiple answers but by default we only got 1 (which is fine)
-            json_text = chat_completion.choices[0].message.content
-        except Exception as e:
-            print(f"Error with ChatGPT: {e}")
-            time.sleep(5)
-            counter -= 1
-            continue
-
-    if counter == 0:
+        # choices is a list b/c we could request multiple answers but by default we only got 1 (which is fine)
+        json_text = chat_completion.choices[0].message.content
+    except Exception as e:
+        print(e)
         return None
     
     # When Ai return "Error: no textbooks found"
@@ -173,6 +165,7 @@ def process_syllabus(pdf):  # extracts and cleans text from the PDF syllabus
     # remove newlines, extra spaces, etc.
     text = " ".join(text.split())
 
+    print("pdf extracted")
     return text
 
 if __name__ == '__main__': # runs the flask application
