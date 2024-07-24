@@ -1,8 +1,7 @@
 # OpenAI API Textbook Search - User Guide
-The OpenAI API Textbook app helps you find textbooks and extract textbook information from syllabus PDFs. You can search for books by title, author, or ISBN, and upload syllabus PDFs to automatically identify and list required textbooks.
 
 ### General description of the application
-This app is a web-based tool designed for users to search for textbooks by subject, title, or author. It is also designed for uploading PDF syllabi, extracting textbook information using OpenAI's GPT-3, and presenting the results to the user. It leverages Flask for web server management, Jinja2 for templating, and PDFMinder for PDF text extraction. The application also integrates with the OpenAI API to analyze and process the text from the syllabus.
+The OpenAI API Textbook app helps you find textbooks and extract textbook information from syllabus PDFs. Specifically, this app is a web-based tool designed for users to search for textbooks by title, author, or ISBN. It is also designed for uploading PDF syllabi, extracting textbook information using OpenAI's GPT-3, and presenting the results to the user. It leverages Flask for web server management, Jinja2 for templating, and PDFMinder for PDF text extraction. The application also integrates with the OpenAI API to analyze and process the text from the syllabus.
 
 - OpenAI API: https://openai.com/api/
 
