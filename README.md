@@ -27,7 +27,9 @@ This app is a web-based tool designed for users to search for textbooks by subje
   - The application will display search results based on the entered criteria.
 
   ![img](docs/Homepage.png)
+
   ![img](<docs/Homepage w: input.png>)
+
   ![img](<docs/Search results.png>)
 
 2. View eBook:
@@ -60,6 +62,7 @@ This app is a web-based tool designed for users to search for textbooks by subje
   - The application will proccess the PDF, extract textbook information, and display the results.
 
   ![img](<docs/Syllabi Input.png>)
+  
   ![img](<docs/Syllabus upload.png>)
 
 ### User Interaction Summary
