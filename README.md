@@ -62,7 +62,7 @@ This app is a web-based tool designed for users to search for textbooks by subje
   - The application will proccess the PDF, extract textbook information, and display the results.
 
   ![img](<docs/Syllabi Input.png>)
-  
+
   ![img](<docs/Syllabus upload.png>)
 
 ### User Interaction Summary
@@ -73,5 +73,7 @@ This app is a web-based tool designed for users to search for textbooks by subje
 4. Opening a textbook: the user can view details of a selected book in the browser (eBook, Google Play, Amazon)
 5. Uploading a syllabus: the user uploads a PDF syllabus for textbook extraction.
 6. Viewing textbook information: the extracted textbook information is displayed based on the syllabus.
+
+
 
 ![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/HCI%20584%20Project%20GIF.gif)
