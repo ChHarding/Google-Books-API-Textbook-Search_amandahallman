@@ -68,7 +68,7 @@ This application is a web-based tool designed for users to search for textbooks 
         - Function: 'index()' (located in the main module)
             - Handles GET requests to render the 'search_w_autocomplete.html' template, which includes a form for users to enter search criteria and perform textbook searches
 
-![img](<Screenshot 2024-07-24 at 1.25.53 PM.png>)
+![img](docs/Homepage.png)
 
 2. Performing a search
     - User Action: the user submits a search form with parameters for search term, type, authors, subject, or ISBN. 
