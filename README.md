@@ -73,6 +73,16 @@ The OpenAI API Textbook app helps you find textbooks and extract textbook inform
 5. Uploading a syllabus: the user uploads a PDF syllabus for textbook extraction.
 6. Viewing textbook information: the extracted textbook information is displayed based on the syllabus.
 
+### Possible Bugs
+
+- Unable to search for selected textbook after syllabus upload; no results found
+  - Potential fix: Searching for the textbook(s) by title or author
+
+- Separate tab for eBook, Google Play, Amazon
+  - Potential fix: The user must close out of the additional tab
+
+- No results based on search parameters
+  - Potential fix: Try new search parameters
 
 
 ![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/HCI%20584%20Project%20GIF.gif)
