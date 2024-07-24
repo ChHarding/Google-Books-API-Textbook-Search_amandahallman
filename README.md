@@ -5,6 +5,10 @@ The OpenAI API Textbook app helps you find textbooks and extract textbook inform
 
 - OpenAI API: https://openai.com/api/
 
+
+![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/HCI%20584%20Project%20GIF.gif)
+
+
 ### Set up: 
 
 1. Configure API Keys
@@ -83,6 +87,3 @@ The OpenAI API Textbook app helps you find textbooks and extract textbook inform
 
 - No results based on search parameters
   - Potential fix: Try new search parameters
-
-
-![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/HCI%20584%20Project%20GIF.gif)
