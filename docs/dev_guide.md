@@ -123,12 +123,10 @@ This application is a web-based tool designed for users to search for textbooks 
 
 ### Minor Issues:
 
-- Template Path Hardcoding
-    - The path to the Jinja2 template (`ebooks` directory) is hardcoded in the `open_ebook` function.
-        - May cause issues if the directory structure changes or if the application is deployed in a different environment where the path differs.
-- Lack of Form Validation
-    - The form inputs for the textbook search and syllabus upload are not validated on the client side.
-        - Users might be able to submit invalid or incomplete data, leading to potential errors.
+- The path to the Jinja2 template (`ebooks` directory) is hardcoded in the `open_ebook` function.
+    - May cause issues if the directory structure changes or if the application is deployed in a different environment where the path differs.
+- The form inputs for the textbook search and syllabus upload are not validated on the client side.
+    - Users might be able to submit invalid or incomplete data, leading to potential errors.
 
 ### Major Issues:
 
