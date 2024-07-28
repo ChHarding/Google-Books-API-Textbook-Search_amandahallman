@@ -1,9 +1,9 @@
-# OpenAI API Textbook Search - Developer's Guide
+# Google/OpenAI API Textbook Search - Developer's Guide
 
 This guide explains the backend of the application for developers. It describes its key components, install/deployment/admin issues, detailed flow walkthrough and code involvement, minor and major known issues, and future work. Note: this application has many opportunities for improvement and added features.
 
 ## Overview
-This application is a web-based tool designed for users to search for textbooks by subject, title, or author. It is also designed for uploading PDF syllabi, extracting textbook information using OpenAI's GPT-3, and presenting the results to the user. It leverages Flask for web server management, Jinja2 for templating, and PDFMinder for PDF text extraction. The application also integrates with the OpenAI API to analyze and process the text from the syllabus.
+This application is a web-based tool designed for users to search for textbooks by subject, title, or author. It uses the Google Books API to search for textbooks based on user queries, and is also designed for uploading PDF syllabi, extracting textbook information using OpenAI's GPT-3, and presenting the results to the user. It leverages Flask for web server management, Jinja2 for templating, and PDFMinder for PDF text extraction. The application also integrates with the OpenAI API to analyze and process the text from the syllabus.
 
 ## Key Components
 
@@ -39,7 +39,7 @@ This application is a web-based tool designed for users to search for textbooks 
         - upload_syllabus.html                  (Template for the syllabus upload page)
         - syllabus_results.html                 (Template for displaying extracted textbook info)
 
-    - get_ebooks_function.py                    (Script with the 'get_books' function)
+    - get_ebooks_function.py                    (Script with the 'get_books' function; Google API)
     - api_key.py                                (File containing the OpenAI API key)
     - main.py                                   (Main application script)
     - bugs.txt                                  (File listing possible bugs)

@@ -1,9 +1,10 @@
-# OpenAI API Textbook Search - User Guide
+# Google/OpenAI API Textbook Search - User Guide
 
-The OpenAI API Textbook app is a simple tool designed for finding textbooks, uploading PDF syllabi, extracting textbook information using OpenAI's GPT-3, and presenting a list of results. It can be used for simplified textbook searches with an easy-to-use interface, automated textbook extraction when given course syllabi, and to streamline workflow for educators, students and researchers. In addition, the tool can be used to read textbooks on an eReader or purchase the textbooks on Google Play or Amazon.
+The Google & OpenAI API Textbook app is a simple tool designed for finding textbooks based on search query, uploading PDF syllabi, extracting textbook information, and presenting a list of results. It can be used for simplified textbook searches with an easy-to-use interface, automated textbook extraction when given course syllabi, and to streamline workflow for educators, students and researchers. In addition, the tool can be used to read textbooks on an eReader or purchase the textbooks on Google Play or Amazon.
 
 This guide establishes how to set up the app and provides instructions on how to use it. It is important that the repository has already been downloaded or cloned to your local machine. NOTE: the provided instructions are for macOS.
 
+- Google Books API: https://www.googleapis.com/books/v1/volumes
 - OpenAI API: https://openai.com/api/
 
 
@@ -12,7 +13,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ## Setting Up the Application: 
 
-### Configure API Key:
+### Configure OpenAI API Key:
 
   1. Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
 
