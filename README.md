@@ -12,7 +12,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ### Setting Up the Application: 
 
-- Configure API Key:
+Configure API Key:
 
   1. Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
 
@@ -21,20 +21,20 @@ This guide establishes how to set up the app and provides instructions on how to
   3. Next, create a python file in the project root directory called 'api_key.py' with the following context:
     - openai_api_key = "your_openai_api_key_here" (Replace 'your_openai_api_key_here' with your actual OpenAI API key).
 
-- Install required packages (Python 3.x)
+Install required packages (Python 3.x):
 
   In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
 
-  - pip3 install Flask --upgrade
-  - pip3 install requests --upgrade
-  - pip3 install jinja2 --upgrade
-  - pip3 install pdfminer.six --upgrade
-  - pip3 install openai --upgrade
-  - pip3 install werkzeug --upgrade
+  1. pip3 install Flask --upgrade
+  2. pip3 install requests --upgrade
+  3. pip3 install jinja2 --upgrade
+  4. pip3 install pdfminer.six --upgrade
+  5. pip3 install openai --upgrade
+  6. pip3 install werkzeug --upgrade
 
 ### Running the Application:
 
-- Run the Flask application (VS Code)
+Run the Flask application (VS Code)
 
   To access the application, go to the main.py file in the project's root folder.
 
