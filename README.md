@@ -104,9 +104,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
 - Unable to search for selected textbook after syllabus upload; no results found
   - Potential fix: Searching for the textbook(s) by title or author
-
 - Separate tab for eBook, Google Play, Amazon
   - Potential fix: The user must close out of the additional tab
-
 - No results based on search parameters
   - Potential fix: Try new search parameters
