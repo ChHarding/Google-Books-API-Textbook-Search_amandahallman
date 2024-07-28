@@ -67,17 +67,17 @@ This application is a web-based tool designed for users to search for textbooks 
 ### Landing on the search page
 - User Action: the user navigates to the rool URL ('/').
 - Code Involvement:
-    - Function: 'index()' (located in the main module)
-        - Handles GET requests to render the 'search_w_autocomplete.html' template, which includes a form for users to enter search criteria and perform textbook searches
+    - Function: `index()` (located in the main module)
+        - Handles GET requests to render the `search_w_autocomplete.html` template, which includes a form for users to enter search criteria and perform textbook searches
 
 ![img](Homepage.png)
 
 ### Performing a search
 - User Action: the user submits a search form with parameters for search term, type, authors, subject, or ISBN. 
 - Code Involvement:
-    - Function: 'perform_search()' (located in the main module)
-        - Handles POST requests to /search. Constructs a query based on the form data and calls get_books() from get_ebooks_function.py to fetch book data.
-    - Function: 'get_books(query)' (located in 'get_ebooks_function.py')
+    - Function: `perform_search()` (located in the main module)
+        - Handles POST requests to /search. Constructs a query based on the form data and calls `get_books()` from `get_ebooks_function.py` to fetch book data.
+    - Function: `get_books(query)` (located in get_ebooks_function.py)
         - Fetches book data based on the constructed query. The results are passed to the results.html template.
 
 ![img](<Subject drop-down.png>)
@@ -85,17 +85,17 @@ This application is a web-based tool designed for users to search for textbooks 
 ### Viewing search results:
 - User Action: the user views the search results displayed on the results page.
 - Code Involvement:
-    - Template: 'results.html'
-        - Renders the book search results based on the data received from the perform_search() function.
+    - Template: `results.html`
+        - Renders the book search results based on the data received from the `perform_search()` function.
 
 ![img](<Search results.png>)
 
 ### Opening a textbook:
 - User Action: the user clicks on a link to open an eBook, Google Play, or Amazon
 - Code Involvement:
-    - Function: 'open_ebook(isbn, subject, author)' (located in the main module)
-    - Template: 'google_ebook_reader_template.html' (loaded from the 'ebooks' directory)
-        - Handles GET requests to /open_ebook/<isbn>/<subject>/<author>. Renders the google_ebook_reader_template.html using Jinja2 and opens it in the browser.
+    - Function: `open_ebook(isbn, subject, author)` (located in the main module)
+    - Template: `google_ebook_reader_template.html` (loaded from the `ebooks` directory)
+        - Handles GET requests to /open_ebook/<isbn>/<subject>/<author>. Renders the `google_ebook_reader_template.html` template using Jinja2 and opens it in the browser.
 
 ![img](<eBook reader.png>)
 ![img](<Google Play.png>)
@@ -104,11 +104,11 @@ This application is a web-based tool designed for users to search for textbooks 
 ### Uploading a syllabus:
 - User Action: the user uploads a PDF syllabus file.
 - Code Involvement:
-    - Function: 'upload_syllabus()' (located in the main module)
-        - Handles both GET and POST requests to /upload_syllabus. For POST requests, it saves the uploaded PDF, extracts text using process_syllabus(), and then calls extract_textbooks_info() to get textbook data.
-    - Function: 'process_syllabus(pdf)' (located in the main module)
+    - Function: `upload_syllabus()` (located in the main module)
+        - Handles both GET and POST requests to /upload_syllabus. For POST requests, it saves the uploaded PDF, extracts text using `process_syllabus()`, and then calls `extract_textbooks_info()` to get textbook data.
+    - Function: `process_syllabus(pdf)` (located in the main module)
         - Extracts and cleans text from the uploaded PDF.
-    - Function: 'extract_textbooks_info(syllabus_text)' (located in the main module)
+    - Function: `extract_textbooks_info(syllabus_text)` (located in the main module)
         - Uses OpenAI's GPT-3 model to extract textbook information from the syllabus text. It returns a list of dictionaries with textbook details or an error message.
 
 ![img](<Syllabus upload.png>)
@@ -116,7 +116,7 @@ This application is a web-based tool designed for users to search for textbooks 
 ### Viewing textbook information:
 - User Action: the users views the extracted textbook information from the syllabus.
 - Code Involvement:
-    - Template: 'syllabus_results.html'
+    - Template: `syllabus_results.html`
         - Displays the extracted textbook information based on the data provided by extract_textbooks_info().
 
 ## Known Issues
@@ -124,9 +124,8 @@ This application is a web-based tool designed for users to search for textbooks 
 ### Minor Issues:
 
 - Template Path Hardcoding
-    - The path to the Jinja2 template ('ebooks' directory) is hardcoded in the 'open_ebook' function.
+    - The path to the Jinja2 template (`ebooks` directory) is hardcoded in the `open_ebook` function.
         - May cause issues if the directory structure changes or if the application is deployed in a different environment where the path differs.
-
 - Lack of Form Validation
     - The form inputs for the textbook search and syllabus upload are not validated on the client side.
         - Users might be able to submit invalid or incomplete data, leading to potential errors.
@@ -134,21 +133,17 @@ This application is a web-based tool designed for users to search for textbooks 
 ### Major Issues:
 
 - Inconsistent File Handling for Syllabus Uploads
-    - The file handling in 'upload_syllabus()' assumes that the uploaded file will always be a valid PDF and that the 'process_syllabus' function will not fail.
+    - The file handling in `upload_syllabus()` assumes that the uploaded file will always be a valid PDF and that the `process_syllabus` function will not fail.
         - If the file is corrupted or not a valid PDF, the application may crash or behave unexpectedly.
-
 - Hardcoded API Key
-    - The OpenAI API key is hardcoded and retrieved from 'api_key.py'.
+    - The OpenAI API key is hardcoded and retrieved from `api_key.py`.
         - Hardcoding sensitive information can lead to security vulnerabilities if the code is exposed or shared.
-
 - Potential Performance Issues with Large PDFs
-    - The 'process_syllabus()' function might experience performance issues or timeouts when processing very large PDF files.
+    - The `process_syllabus()` function might experience performance issues or timeouts when processing very large PDF files.
         - Users with large syllabi may encounter slow performance or failed uploads.
-
-- Browser Compatibility for 'open_ebook()'
-    - The 'open_ebook()' function opens the ebook in the user's default web browser using a file URL.
+- Browser Compatibility for `open_ebook()`
+    - The `open_ebook()` function opens the ebook in the user's default web browser using a file URL.
         - This approach may not work consistently across all browsers or operating systensm and might lead to issues with local file access permissions.
-
 - Missing Feedback
     - The application lacks user feedback mechanisms for certain actions (e.g., file upload success/failure, search results).
         - Users may be confused if actions do not provide visible feedback or if something goes wrong. 
@@ -157,19 +152,14 @@ This application is a web-based tool designed for users to search for textbooks 
 
 - Enhanced User Interface and Experience
     - Improve the overall design and usability of the web application. This could include more intuitive layouts and colors, better navigation, and responsive design for different devices. The GUI of this application is very bare minimum.
-
 - Advanced Search and Filtering Options
     - Extend the search functionality to include advanced filters such as publication date, language, or book format. Possibly extend the search functionality to include university and course database.
-
 - Integration with More Book Databases
     - Add support for additional book APIs and databases, such as Open Library, Google, etc. 
-
 - User Authentication and Profiles
     - Implement user authentication to allow users to create accounts, save their search history, and manage their required course textbooks. Possibly implement university-specific profiles.
-
 - File Management and Performance Improvements
     - Optimize the file handling and processing logic, especially for large PDF files, to enhance performance and reduce processing times.
-
 - API Documentation and Developer Support
     - Provide comprehensive API documentation for any external services or integrations used in the application. Further documentation on coding process.
 
