@@ -67,7 +67,7 @@ This guide establishes how to set up the app and provides instructions on how to
   
   ![img](<docs/eBook reader.png>)
 
-### View Google Play:
+### View on Google Play:
 
   - Click the blue link, 'View on Google Play', to view detailed information.
   - The application will open a new HTML page with the eBook in your default web browser.
@@ -75,7 +75,7 @@ This guide establishes how to set up the app and provides instructions on how to
   
   ![img](<docs/Google Play.png>)
 
-### View Amazon:
+### View on Amazon:
 
   - Click the blue link, 'View on Amazon', to view detailed information.
   - The application will open a new HTML page with the eBook in your default web browser.
