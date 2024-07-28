@@ -112,4 +112,6 @@ This guide establishes how to set up the app and provides instructions on how to
 - No results based on search parameters
   - Potential fix: Try new search parameters
 
-**NOTE:** Developer's Guide in docs folder.
+
+
+**NOTE:** **Developer's Guide in docs folder.**
