@@ -111,3 +111,5 @@ This guide establishes how to set up the app and provides instructions on how to
   - Potential fix: The user must close out of the additional tab
 - No results based on search parameters
   - Potential fix: Try new search parameters
+
+**NOTE:** Developer's Guide in docs folder.
