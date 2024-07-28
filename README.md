@@ -20,6 +20,8 @@ This guide establishes how to set up the app and provides instructions on how to
 
   3. Next, create a python file in the project root directory called 'api_key.py' with the following context:
     - openai_api_key = "your_openai_api_key_here" (Replace 'your_openai_api_key_here' with your actual OpenAI API key).
+  
+  **NOTE:** **Do not share your API key with anyone.** It can be misused if shared or stolen.
 
 ### Install required packages (Python 3.x):
 
