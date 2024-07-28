@@ -10,9 +10,9 @@ This guide establishes how to set up the app and provides instructions on how to
 ![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/HCI%20584%20Project%20GIF.gif)
 
 
-### Setting Up the Application: 
+## Setting Up the Application: 
 
-Configure API Key:
+### Configure API Key:
 
   1. Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
 
@@ -21,7 +21,7 @@ Configure API Key:
   3. Next, create a python file in the project root directory called 'api_key.py' with the following context:
     - openai_api_key = "your_openai_api_key_here" (Replace 'your_openai_api_key_here' with your actual OpenAI API key).
 
-Install required packages (Python 3.x):
+### Install required packages (Python 3.x):
 
   In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
 
@@ -32,9 +32,9 @@ Install required packages (Python 3.x):
   5. pip3 install openai --upgrade
   6. pip3 install werkzeug --upgrade
 
-### Running the Application:
+## Running the Application:
 
-Run the Flask application (VS Code)
+### Run the Flask application (VS Code)
 
   To access the application, go to the main.py file in the project's root folder.
 
@@ -44,7 +44,7 @@ Run the Flask application (VS Code)
 
 ![img](<docs/Run App.png>)
 
-### Using the Application:
+## Using the Application:
 
 1. Search for textbooks:
 
@@ -90,7 +90,7 @@ Run the Flask application (VS Code)
 
   ![img](<docs/Syllabus upload.png>)
 
-### User Interaction Summary
+## User Interaction Summary
 
 1. Landing on the search page: the user lands on the main search page where they can search for textbooks or upload a syllabus.
 2. Performing a search: the user submits search parameters (subject, title, and/or author) to find textbooks.
@@ -99,7 +99,7 @@ Run the Flask application (VS Code)
 5. Uploading a syllabus: the user uploads a PDF syllabus for textbook extraction.
 6. Viewing textbook information: the extracted textbook information is displayed based on the syllabus.
 
-### Possible Bugs
+## Possible Bugs
 
 - Unable to search for selected textbook after syllabus upload; no results found
   - Potential fix: Searching for the textbook(s) by title or author
