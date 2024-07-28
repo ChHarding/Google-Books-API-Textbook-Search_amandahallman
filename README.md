@@ -15,13 +15,13 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ### Configure OpenAI API Key:
 
-  1. Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
+1. Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
 
-  2. Select '+ Create new secret key'. Copy your new key.
+2. Select '+ Create new secret key'. Copy your new key.
 
-  3. Next, create a python file in the project root directory called 'api_key.py' with the following context:
-
-    - openai_api_key = "your_openai_api_key_here" (Replace 'your_openai_api_key_here' with your actual OpenAI API key).
+3. Next, create a python file in the project root directory called 'api_key.py' with the following context:
+  
+- openai_api_key = "your_openai_api_key_here" (Replace 'your_openai_api_key_here' with your actual OpenAI API key).
   
 ![img](<docs/api key.png>)
   
