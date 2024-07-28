@@ -12,18 +12,18 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ### Setting Up the Application: 
 
-1. Configure API Key
+- Configure API Key:
 
-  - Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
+  1. Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
 
-  - Select '+ Create new secret key'. Copy your new key.
+  2. Select '+ Create new secret key'. Copy your new key.
 
-  - Next, create a python file in the project root directory called 'api_key.py' with the following context:
+  3. Next, create a python file in the project root directory called 'api_key.py' with the following context:
     - openai_api_key = "your_openai_api_key_here" (Replace 'your_openai_api_key_here' with your actual OpenAI API key).
 
-2. Install required packages (Python 3.x)
+- Install required packages (Python 3.x)
 
-In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
+  In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
 
   - pip3 install Flask --upgrade
   - pip3 install requests --upgrade
@@ -34,13 +34,13 @@ In a terminal (macOS menu bar > terminal > new terminal), run the following comm
 
 ### Running the Application:
 
-1. Run the Flask application (VS Code)
+- Run the Flask application (VS Code)
 
-To access the application, go to the main.py file in the project's root folder.
+  To access the application, go to the main.py file in the project's root folder.
 
-  - Once in main.py, select 'Run' in the top menu bar, then 'Run Without Debugging'.
+  1. Once in main.py, select 'Run' in the top menu bar, then 'Run Without Debugging'.
   
-  - In the terminal, command click 'http://127.0.0.1:5000' or open your web browser and go to 'http://127.0.0.1:5000' to access the application.
+  2. In the terminal, command click 'http://127.0.0.1:5000' or open your web browser and go to 'http://127.0.0.1:5000' to access the application.
 
 ![img](<docs/Run App.png>)
 
