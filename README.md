@@ -25,12 +25,12 @@ This guide establishes how to set up the app and provides instructions on how to
 
   In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
 
-  1. pip3 install Flask --upgrade
-  2. pip3 install requests --upgrade
-  3. pip3 install jinja2 --upgrade
-  4. pip3 install pdfminer.six --upgrade
-  5. pip3 install openai --upgrade
-  6. pip3 install werkzeug --upgrade
+  1. 'pip3 install Flask --upgrade'
+  2. 'pip3 install requests --upgrade'
+  3. 'pip3 install jinja2 --upgrade'
+  4. 'pip3 install pdfminer.six --upgrade'
+  5. 'pip3 install openai --upgrade'
+  6. 'pip3 install werkzeug --upgrade'
 
 ## Running the Application:
 
