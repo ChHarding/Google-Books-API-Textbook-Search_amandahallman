@@ -123,23 +123,16 @@ This application is a web-based tool designed for users to search for textbooks 
 
 ### Minor Issues:
 
-- The path to the Jinja2 template (`ebooks` directory) is hardcoded in the `open_ebook` function.
-    - May cause issues if the directory structure changes or if the application is deployed in a different environment where the path differs.
-- The form inputs for the textbook search and syllabus upload are not validated on the client side.
-    - Users might be able to submit invalid or incomplete data, leading to potential errors.
+- The path to the Jinja2 template (`ebooks` directory) is hardcoded in the `open_ebook` function. This may cause issues if the directory structure changes or if the application is deployed in a different environment where the path differs.
+- The form inputs for the textbook search and syllabus upload are not validated on the client side. Users might be able to submit invalid or incomplete data, leading to potential errors.
 
 ### Major Issues:
 
-- The file handling in `upload_syllabus()` assumes that the uploaded file will always be a valid PDF and that the `process_syllabus` function will not fail.
-    - If the file is corrupted or not a valid PDF, the application may crash or behave unexpectedly.
-- The OpenAI API key is hardcoded and retrieved from `api_key.py`.
-    - Hardcoding sensitive information can lead to security vulnerabilities if the code is exposed or shared.
-- The `process_syllabus()` function might experience performance issues or timeouts when processing very large PDF files.
-    - Users with large syllabi may encounter slow performance or failed uploads.
-- The `open_ebook()` function opens the ebook in the user's default web browser using a file URL.
-    - This approach may not work consistently across all browsers or operating systensm and might lead to issues with local file access permissions.
-- The application lacks user feedback mechanisms for certain actions (e.g., file upload success/failure, search results).
-    - Users may be confused if actions do not provide visible feedback or if something goes wrong. 
+- The file handling in `upload_syllabus()` assumes that the uploaded file will always be a valid PDF and that the `process_syllabus` function will not fail. If the file is corrupted or not a valid PDF, the application may crash or behave unexpectedly.
+- The OpenAI API key is hardcoded and retrieved from `api_key.py`. Hardcoding sensitive information can lead to security vulnerabilities if the code is exposed or shared.
+- The `process_syllabus()` function might experience performance issues or timeouts when processing very large PDF files. Users with large syllabi may encounter slow performance or failed uploads.
+- The `open_ebook()` function opens the ebook in the user's default web browser using a file URL. This approach may not work consistently across all browsers or operating systensm and might lead to issues with local file access permissions.
+- The application lacks user feedback mechanisms for certain actions (e.g., file upload success/failure, search results). Users may be confused if actions do not provide visible feedback or if something goes wrong. 
 
 ## Future Work
 
