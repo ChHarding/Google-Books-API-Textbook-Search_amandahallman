@@ -34,11 +34,9 @@ This guide establishes how to set up the app and provides instructions on how to
   5. `pip3 install openai --upgrade`
   6. `pip3 install werkzeug --upgrade`
 
-## Running the Application:
+## Running the Application (VS Code):
 
-### Run the Flask application (VS Code)
-
-  To access the application, go to the main.py file in the project's root folder.
+  To access the Flask application, go to the main.py file in the project's root folder.
 
   1. Once in main.py, select 'Run' in the top menu bar, then 'Run Without Debugging'.
   
