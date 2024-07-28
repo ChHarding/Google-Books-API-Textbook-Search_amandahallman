@@ -138,7 +138,7 @@ This application is a web-based tool designed for users to search for textbooks 
 
 - Improve the overall design and usability of the web application. This could include more intuitive layouts and colors, better navigation, and responsive design for different devices. The GUI of this application is very bare minimum.
 - Extend the search functionality to include advanced filters such as publication date, language, or book format. Possibly extend the search functionality to include university and course database.
-- Add support for additional book APIs and databases, such as Open Library, Google, etc. 
+- Add support for additional book APIs and databases, such as Open Library, etc. 
 - Implement user authentication to allow users to create accounts, save their search history, and manage their required course textbooks. Possibly implement university-specific profiles.
 - Optimize the file handling and processing logic, especially for large PDF files, to enhance performance and reduce processing times.
 - Provide comprehensive API documentation for any external services or integrations used in the application. Further documentation on coding process.
