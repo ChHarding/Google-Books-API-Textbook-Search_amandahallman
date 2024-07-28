@@ -48,7 +48,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ## Using the Application:
 
-1. ### Search for textbooks:
+### Search for textbooks:
 
   - On the main page, enter search parameters for the desired textbook (title, author, subject, ISBN) and submit the search form.
   - The application will display search results based on the entered criteria.
@@ -59,7 +59,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
   ![img](<docs/Search results.png>)
 
-2. ### View eBook:
+### View eBook:
 
   - Click the blue link, 'Open Ebook', to view detailed information.
   - The application will open a new HTML page with the eBook in your default web browser.
@@ -67,7 +67,7 @@ This guide establishes how to set up the app and provides instructions on how to
   
   ![img](<docs/eBook reader.png>)
 
-3. ### View Google Play:
+### View Google Play:
 
   - Click the blue link, 'View on Google Play', to view detailed information.
   - The application will open a new HTML page with the eBook in your default web browser.
@@ -75,7 +75,7 @@ This guide establishes how to set up the app and provides instructions on how to
   
   ![img](<docs/Google Play.png>)
 
-4. ### View Amazon:
+### View Amazon:
 
   - Click the blue link, 'View on Amazon', to view detailed information.
   - The application will open a new HTML page with the eBook in your default web browser.
@@ -83,7 +83,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
   ![img](docs/Amazon.png)
 
-5. ### Upload a syllabus:
+### Upload a syllabus:
 
   - Back on the main page, select the 'Choose File' button to pull a syllabus from local files. Once selected, click 'Upload Syllabus'.
   - The application will proccess the PDF, extract textbook information, and display the results.
