@@ -1,7 +1,8 @@
 # OpenAI API Textbook Search - User Guide
 
-### General description of the application
-The OpenAI API Textbook app helps you find textbooks and extract textbook information from syllabus PDFs. Specifically, this app is a web-based tool designed for users to search for textbooks by title, author, or ISBN. It is also designed for uploading PDF syllabi, extracting textbook information using OpenAI's GPT-3, and presenting the results to the user. It leverages Flask for web server management, Jinja2 for templating, and PDFMinder for PDF text extraction. The application also integrates with the OpenAI API to analyze and process the text from the syllabus.
+The OpenAI API Textbook app is a simple tool designed for finding textbooks, uploading PDF syllabi, extracting textbook information using OpenAI's GPT-3, and presenting a list of results. It can be used for simplified textbook searches with an easy-to-use interface, automated textbook extraction when given course syllabi, and to streamline workflow for educators, students and researchers. In addition, the tool can be used to read textbooks on an eReader or purchase the textbooks on Google Play or Amazon.
+
+This guide establishes how to set up the app and provides instructions on how to use it. It is important that the repository has already been downloaded or cloned to your local machine. NOTE: the provided instructions are for macOS.
 
 - OpenAI API: https://openai.com/api/
 
@@ -9,18 +10,39 @@ The OpenAI API Textbook app helps you find textbooks and extract textbook inform
 ![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/HCI%20584%20Project%20GIF.gif)
 
 
-### Set up: 
+### Setting Up the Application: 
 
-1. Configure API Keys
+1. Configure API Key
 
-  - Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under Profile > API reference.
+  - Obtain OpenAI API key: sign up for OpenAI API access at OpenAI: https://beta.openai.com/signup/. After signing up, you'll receive an API key under 'Your profile' in the top right of the page, then User API keys.
 
-  - Create a 'api_key.py' file in the project root directory with the following context:
+  - Select '+ Create new secret key'. Copy your new key.
+
+  - Next, create a python file in the project root directory called 'api_key.py' with the following context:
     - openai_api_key = "your_openai_api_key_here" (Replace 'your_openai_api_key_here' with your actual OpenAI API key).
 
-2. Start the Flask application
+2. Install required packages (Python 3.x)
 
-  - Open your web browser and go to 'http://127.0.0.1:5000' to access the application.
+In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
+
+  - pip3 install Flask --upgrade
+  - pip3 install requests --upgrade
+  - pip3 install jinja2 --upgrade
+  - pip3 install pdfminer.six --upgrade
+  - pip3 install openai --upgrade
+  - pip3 install werkzeug --upgrade
+
+### Running the Application:
+
+1. Run the Flask application (VS Code)
+
+To access the application, go to the main.py file in the project's root folder.
+
+  - Once in main.py, select 'Run' in the top menu bar, then 'Run Without Debugging'.
+  
+  - In the terminal, command click 'http://127.0.0.1:5000' or open your web browser and go to 'http://127.0.0.1:5000' to access the application.
+
+![img](<docs/Run App.png>)
 
 ### Using the Application:
 
