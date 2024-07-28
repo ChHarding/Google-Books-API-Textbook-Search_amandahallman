@@ -2,9 +2,7 @@
 
 The Google & OpenAI API Textbook app is a simple tool designed for finding textbooks based on search query, uploading PDF syllabi, extracting textbook information, and presenting a list of results. It can be used for simplified textbook searches with an easy-to-use interface, automated textbook extraction when given course syllabi, and to streamline workflow for educators, students and researchers. In addition, the tool can be used to read textbooks on an eReader or purchase the textbooks on Google Play or Amazon.
 
-This guide establishes how to set up the app and provides instructions on how to use it. It is important that the repository has already been downloaded or cloned to your local machine. 
-
-**NOTE:** The provided instructions are for macOS.
+This guide establishes how to set up the app and provides instructions on how to use it. It is important that the repository has already been downloaded or cloned to your local machine. **NOTE:** The provided instructions are for macOS.
 
 - Google Books API: https://www.googleapis.com/books/v1/volumes
 - OpenAI API: https://openai.com/api/
