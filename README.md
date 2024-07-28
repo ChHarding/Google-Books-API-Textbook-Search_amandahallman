@@ -8,7 +8,7 @@ This guide establishes how to set up the app and provides instructions on how to
 - OpenAI API: https://openai.com/api/
 
 
-![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/HCI%20584%20Project%20GIF.gif)
+![HCI 584 Project GIF](https://github.com/amandahallman/Google-Books-API-Textbook-Search_amandahallman/blob/main/docs/HCI%20584%20Project%20GIF.gif)
 
 
 ## Setting Up the Application: 
