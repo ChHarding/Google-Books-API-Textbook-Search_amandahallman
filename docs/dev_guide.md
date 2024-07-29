@@ -22,6 +22,7 @@ This application is a web-based tool designed for users to search for textbooks 
 
 - Google-Books-API-Textbook-Search_amandahallman
 
+    - main.py                                   (Main application script)
     - /ebooks
         - google_ebook_reader_template.html     (Jinja2 template for rendering ebook pages)
 
@@ -29,9 +30,9 @@ This application is a web-based tool designed for users to search for textbooks 
         - [uploaded PDF files]                  (Directory where uploaded files will be saved)
 
     - /static
-        - /css                                  (Directory for CSS files)
+        - styles.css                            (CSS file)
 
-    - /old                                      (Folder containing old files/folders for reference)                                   
+    - get_ebooks_function.py                    (Script with the 'get_books' function; Google API)                               
 
     - /templates
         - search_w_autocomplete.html            (Template for the main search page with autocomplete)
@@ -39,10 +40,16 @@ This application is a web-based tool designed for users to search for textbooks 
         - upload_syllabus.html                  (Template for the syllabus upload page)
         - syllabus_results.html                 (Template for displaying extracted textbook info)
 
-    - get_ebooks_function.py                    (Script with the 'get_books' function; Google API)
+    - /old                                      (Folder containing old files/folders for reference)   
     - api_key.py                                (File containing the OpenAI API key)
-    - main.py                                   (Main application script)
     - bugs.txt                                  (File listing possible bugs)
+    - /docs                                     (Folder to hold images and developer's guide)
+    - /categories                               (Folder for subject categories)
+        - subject_categories_free_ebook.csv
+        - test_categories.py
+    - .gitignore                                (Mandatory)
+    - LICENSE                                   (Mandatory)
+    - README.md                                 (Mandatory)
 
 ## Install/Deployment/Admin Issues
 
