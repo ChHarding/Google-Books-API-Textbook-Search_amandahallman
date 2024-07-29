@@ -49,7 +49,7 @@ This application is a web-based tool designed for users to search for textbooks 
         - test_categories.py
     - .gitignore                                (Mandatory)
     - LICENSE                                   (Mandatory)
-    - README.md                                 (Mandatory)
+    - README.md                                 (User's guide, mandatory)
 
 ## Install/Deployment/Admin Issues
 
