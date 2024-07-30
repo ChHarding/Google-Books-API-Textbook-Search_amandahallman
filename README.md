@@ -27,7 +27,7 @@ This guide establishes how to set up the app and provides instructions on how to
   
   **NOTE:** **Do not share your API key with anyone.** It can be misused if shared or stolen.
 
-### Install required packages (Python 3.x):
+### Install required packages (Python >= 3.10):
 
   In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
 
@@ -38,15 +38,19 @@ This guide establishes how to set up the app and provides instructions on how to
   5. `pip3 install openai --upgrade`
   6. `pip3 install werkzeug --upgrade`
 
-## Running the Application (VS Code):
+  These commands can also be found in requirements.txt.
 
-  To access the Flask application, go to the main.py file in the project's root folder.
+## Running the Application:
 
-  1. Once in main.py, select 'Run' in the top menu bar, then 'Run Without Debugging'.
+  To access the Flask application, go to the root folder (cd), and either: run it through an IDE, right click `main.py` and select Open with - Python Launcher.app, or via command line interface (CLI):
+
+  1. To open a command line, select Terminal in the menu bar, then 'New Terminal'.
   
-  2. In the terminal, command click 'http://127.0.0.1:5000' or open your web browser and go to 'http://127.0.0.1:5000' to access the application.
+  2. Type `python3 main.py` and press enter to start the application.
+  
+  3. Command click `http://127.0.0.1:5000`. This is the URL to the Flask application.
 
-![img](<docs/Run App.png>)
+![img](<docs/Running-app.png>)
 
 ## Using the Application:
 

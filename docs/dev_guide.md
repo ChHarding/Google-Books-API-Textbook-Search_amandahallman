@@ -44,6 +44,7 @@ This application is a web-based tool designed for users to search for textbooks 
     - api_key.py                                (File containing the OpenAI API key)
     - bugs.txt                                  (File listing possible bugs)
     - /docs                                     (Folder to hold images and developer's guide)
+    - requirements.txt                          (Required packages)
     - /categories                               (Folder for subject categories)
         - subject_categories_free_ebook.csv
         - test_categories.py
