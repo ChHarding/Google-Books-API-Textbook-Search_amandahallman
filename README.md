@@ -59,8 +59,8 @@ This guide establishes how to set up the app and provides instructions on how to
 ### Search for textbooks:
 
   - On the main page, enter search parameters for the desired textbook (title, author, subject, ISBN).
-  - Optional: in addition to title or author, search for specific subject via the 'Subject' box drop-down to narrow down results.
-  - Select 'by Title' or 'by Author' to search for the textbook.
+  - **Optional:** In addition to title, author, or ISBN, search for specific subject via the 'Subject' drop-down menu to narrow down results.
+  - Select the 'by Title' or 'by Author' button to search for the textbook.
   - The application will display search results based on the entered criteria.
 
   ![img](docs/Homepage.png)
@@ -121,6 +121,8 @@ This guide establishes how to set up the app and provides instructions on how to
   - Potential fix: The user must close out of the additional tab
 - No results based on search parameters
   - Potential fix: Try new search parameters
+- Errors in typed words
+  - Potential fix: retype the exact book title or author
 
 
 
