@@ -58,12 +58,16 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ### Search for textbooks:
 
-  - On the main page, enter search parameters for the desired textbook (title, author, subject, ISBN) and submit the search form.
+  - On the main page, enter search parameters for the desired textbook (title, author, subject, ISBN).
+  - Optional: in addition to title or author, search for specific subject via the 'Subject' box drop-down to narrow down results.
+  - Select 'by Title' or 'by Author' to search for the textbook.
   - The application will display search results based on the entered criteria.
 
   ![img](docs/Homepage.png)
 
   ![img](<docs/Homepage w: input.png>)
+
+  ![img](<docs/Subject drop-down.png>)
 
   ![img](<docs/Search results.png>)
 
@@ -94,7 +98,7 @@ This guide establishes how to set up the app and provides instructions on how to
 ### Upload a syllabus:
 
   - Back on the main page, select the 'Choose File' button to pull a syllabus from local files. Once selected, click 'Upload Syllabus'.
-  - The application will proccess the PDF, extract textbook information, and display the results.
+  - The application will proccess the PDF, extract textbook information, and display the results. Select 'Search for selected textbook' for viewing options.
 
   ![img](<docs/Syllabi Input.png>)
 
