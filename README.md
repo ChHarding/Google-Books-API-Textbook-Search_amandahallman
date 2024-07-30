@@ -71,18 +71,18 @@ This guide establishes how to set up the app and provides instructions on how to
 
   ![img](<docs/Search results.png>)
 
-### View eBook:
+### View Ebook:
 
   - Click the blue link, 'Open Ebook', to view detailed information.
-  - The application will open a new HTML page with the eBook in your default web browser.
-    - Possible error: the textbook selected does not have an eBook option.
+  - The application will open a new HTML page with the Ebook in your default web browser.
+    - Possible error: the textbook selected does not have an Ebook option.
   
   ![img](<docs/eBook reader.png>)
 
 ### View on Google Play:
 
   - Click the blue link, 'View on Google Play', to view detailed information.
-  - The application will open a new HTML page with the eBook in your default web browser.
+  - The application will open a new HTML page with Google Play in your default web browser.
     - Possible error: the textbook selected does not have the option for Google Play.
   
   ![img](<docs/Google Play.png>)
@@ -90,7 +90,7 @@ This guide establishes how to set up the app and provides instructions on how to
 ### View on Amazon:
 
   - Click the blue link, 'View on Amazon', to view detailed information.
-  - The application will open a new HTML page with the eBook in your default web browser.
+  - The application will open a new HTML page with Amazon in your default web browser.
     - Possible error: the textbook selected does not have the option to purchase on Amazon.
 
   ![img](docs/Amazon.png)
@@ -117,7 +117,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
 - Unable to search for selected textbook after syllabus upload; no results found
   - Potential fix: Searching for the textbook(s) by title or author
-- Separate tab for eBook, Google Play, Amazon
+- Separate tab for Ebook, Google Play, Amazon
   - Potential fix: The user must close out of the additional tab
 - No results based on search parameters
   - Potential fix: Try new search parameters
