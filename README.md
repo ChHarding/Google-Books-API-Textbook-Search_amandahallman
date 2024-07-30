@@ -29,7 +29,7 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ### Install required packages (Python >= 3.10):
 
-  In a terminal (macOS menu bar > terminal > new terminal), run the following commands:
+  Run the following commands via command line interface (CLI). To open a command line, select 'Terminal' in the menu bar, then 'New Terminal'.
 
   1. `pip3 install Flask --upgrade`
   2. `pip3 install requests --upgrade`
@@ -42,9 +42,11 @@ This guide establishes how to set up the app and provides instructions on how to
 
 ## Running the Application:
 
-  To access the Flask application, go to the root folder (cd), and either: run it through an IDE, right click `main.py` and select Open with - Python Launcher.app, or via command line interface (CLI):
+  To access the Flask application, go to the root folder (cd), and either: run it through an IDE, right click `main.py` and select Open with - Python Launcher.app, or via command line interface (CLI).
 
-  1. To open a command line, select Terminal in the menu bar, then 'New Terminal'.
+  To access the application via CLI, follow the instructions below:
+  
+  1. Open a command line via 'Terminal' in the menu bar, then 'New Terminal'
   
   2. Type `python3 main.py` and press enter to start the application.
   
