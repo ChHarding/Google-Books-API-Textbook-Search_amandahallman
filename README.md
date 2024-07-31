@@ -38,7 +38,7 @@ This guide establishes how to set up the app and provides instructions on how to
   5. `pip3 install openai --upgrade`
   6. `pip3 install werkzeug --upgrade`
 
-  Or, run the following command:
+  Or run the following command:
 
   `pip3 install --upgrade -r requirements.txt`
 
