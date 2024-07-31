@@ -1,13 +1,13 @@
-# You need these packages to run my main.py
-# To install them, type this into your terminal:
-
-pip3 install Flask --upgrade
-pip3 install requests --upgrade
-pip3 install jinja2 --upgrade
-pip3 install pdfminer.six --upgrade
-pip3 install openai --upgrade
-pip3 install werkzeug --upgrade
-
-# Or:
+# You need the below packages to run my main.py
+# To install them, run the following command:
 
 pip3 install --upgrade -r requirements.txt
+
+Flask
+requests
+pdfminer.six
+openai >= 1.35.14 # version must be at least 1.35.14
+
+# To find out what versions you have installed, run pip3 list in a CLI
+
+pip3 list
