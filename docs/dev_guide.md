@@ -8,15 +8,11 @@ This application is a web-based tool designed for users to search for textbooks 
 ## Key Components
 
 - Flask Web Framework
-    - Manages HTTP requests and responses, routes URLs to appropriate functions, and serves HTML templates.
-- Jinja2 Templating
-    - Used for rendering HTML templates dynamically based on context data.
+    - Manages HTTP requests and responses, routes URLs to appropriate functions, and serves HTML templates. Jinja2 and werkzeug come with Flask.
 - PDFMiner
     - Extracts text from PDF files uploaded by users.
 - OpenAI API
     - Provides AI-based analysis to extract textbook information from syllabus text.
-- Werkzeug
-    - Provides utilities for file handling, such as securing file names.
 
 ## Directory Structure
 
@@ -137,7 +133,7 @@ This application is a web-based tool designed for users to search for textbooks 
 ### Major Issues:
 
 - The file handling in `upload_syllabus()` assumes that the uploaded file will always be a valid PDF and that the `process_syllabus` function will not fail. If the file is corrupted or not a valid PDF, the application may crash or behave unexpectedly.
-- The OpenAI API key is hardcoded and retrieved from `api_key.py`. Hardcoding sensitive information can lead to security vulnerabilities if the code is exposed or shared.
+- The OpenAI API key is hardcoded and retrieved from `api_key.py`. Ensure that `api_key.py` is in your `.gitignore` file so it does not end up on GitHub.
 - The `process_syllabus()` function might experience performance issues or timeouts when processing very large PDF files. Users with large syllabi may encounter slow performance or failed uploads.
 - The `open_ebook()` function opens the ebook in the user's default web browser using a file URL. This approach may not work consistently across all browsers or operating systensm and might lead to issues with local file access permissions.
 - The application lacks user feedback mechanisms for certain actions (e.g., file upload success/failure, search results). Users may be confused if actions do not provide visible feedback or if something goes wrong. 
