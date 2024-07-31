@@ -33,10 +33,8 @@ This guide establishes how to set up the app and provides instructions on how to
 
   1. `pip3 install Flask --upgrade`
   2. `pip3 install requests --upgrade`
-  3. `pip3 install jinja2 --upgrade`
-  4. `pip3 install pdfminer.six --upgrade`
-  5. `pip3 install openai --upgrade`
-  6. `pip3 install werkzeug --upgrade`
+  3. `pip3 install pdfminer.six --upgrade`
+  4. `pip3 install openai >= 1.35.14`
 
   Or run the following command:
 
